@@ -22,7 +22,7 @@ void main() async {
   Hive.init(appDirectory.path);
 
   Hive.registerAdapter(WishlistAdapter());
-
+  await Hive.openBox<Wishlist>('wishlist');
   runApp(const MyApp());
 }
 
@@ -33,9 +33,40 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+      ),
+      home: Home(),
+    );
+  }
+}
+
+class Home extends StatefulWidget {
+  Home({Key? key}) : super(key: key);
+
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+
+  var mainController = Get 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text('Home'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.health_and_safety_sharp),
+            title: Text('Wishlist'),
+          ),
+        ],
       ),
     );
   }
