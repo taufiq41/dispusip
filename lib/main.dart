@@ -1,5 +1,7 @@
+import 'package:dispusip/controller/main_controller.dart';
 import 'package:dispusip/model/movie.dart';
 import 'package:dispusip/model/wishlist.dart';
+import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart' as path;
 import 'package:dispusip/model/movie_list.dart';
 import 'package:flutter/material.dart';
@@ -51,11 +53,12 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  var mainController = Get.find<MainController>();
 
-  var mainController = Get 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: Container(),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
